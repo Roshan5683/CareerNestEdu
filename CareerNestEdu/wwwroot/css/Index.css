@@ -1,0 +1,713 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    color: white;
+    padding: 180px 0 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+        background-size: cover;
+    }
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+    .hero-buttons .btn {
+        padding: 16px 36px;
+        font-size: 1.1rem;
+    }
+
+/* Features Section */
+.features {
+    padding: 120px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+    .section-title h2 {
+        font-size: 3rem;
+        color: #212529;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(135deg, #3a86ff, #8338ec);
+            border-radius: 5px;
+        }
+
+    .section-title p {
+        color: #6c757d;
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.2rem;
+    }
+
+.user-types {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.user-card {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    padding: 45px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+    .user-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+    }
+
+    .user-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .user-card i {
+        font-size: 70px;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .user-card.college i {
+        background: linear-gradient(135deg, #8338ec, #ff006e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .user-card h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .user-card p {
+        color: #6c757d;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+.feature-icon {
+    background: #f8f9fa;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-card:hover .feature-icon {
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-icon i {
+    font-size: 32px;
+    color: #3a86ff;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.feature-card:hover .feature-icon i {
+    color: white;
+}
+
+.college-feature .feature-icon {
+    background: #f8f0ff;
+}
+
+    .college-feature .feature-icon i {
+        color: #8338ec;
+    }
+
+.feature-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-content p {
+    color: #6c757d;
+}
+
+/* College Partnership Section */
+.college-partnership {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.partnership-content {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.partnership-text {
+    flex: 1;
+}
+
+.partnership-image {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.partnership-visual {
+    width: 100%;
+    height: 450px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    .partnership-visual::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+        opacity: 0.05;
+    }
+
+.connection-path {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.node {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+    .node:hover {
+        transform: scale(1.1);
+    }
+
+.node-college {
+    background: #8338ec;
+}
+
+.node-student {
+    background: #3a86ff;
+}
+
+.node-employer {
+    background: #ff006e;
+}
+
+.line {
+    position: absolute;
+    height: 5px;
+    background: #5fa0ff;
+    z-index: 1;
+}
+
+.line-1 {
+    width: 40%;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line-2 {
+    width: 40%;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.partnership-text h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #212529;
+}
+
+.partnership-text p {
+    margin-bottom: 25px;
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+.benefits-list {
+    list-style: none;
+    margin: 35px 0;
+}
+
+    .benefits-list li {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 18px;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+        .benefits-list li:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateX(10px);
+        }
+
+    .benefits-list i {
+        color: #8338ec;
+        margin-top: 5px;
+        font-size: 22px;
+    }
+
+/* Partner Colleges */
+.partner-colleges {
+    padding: 120px 0;
+    background: white;
+}
+
+.college-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.college-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+    .college-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: #8338ec;
+    }
+
+    .college-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+.college-logo {
+    width: 90px;
+    height: 90px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: 700;
+    color: #8338ec;
+    font-size: 2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.college-card:hover .college-logo {
+    background: #8338ec;
+    color: white;
+    transform: scale(1.1);
+}
+
+.college-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.college-card p {
+    color: #6c757d;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* Stats Section */
+.stats {
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+}
+
+.stat-item {
+    padding: 25px;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 120px 0;
+    background: #f8f9fa;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+        border-radius: 18px 18px 0 0;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-10px);
+    }
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #212529;
+    position: relative;
+    padding-left: 25px;
+    font-size: 1.1rem;
+}
+
+    .testimonial-text::before {
+        content: '"';
+        position: absolute;
+        left: 0;
+        top: -15px;
+        font-size: 70px;
+        color: #5fa0ff;
+        opacity: 0.3;
+        line-height: 1;
+    }
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.author-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #3a86ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.college-testimonial .author-avatar {
+    background: #8338ec;
+}
+
+.author-info h4 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.author-info p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,0 1000,1000 0,1000"/></svg>');
+        background-size: cover;
+    }
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta h2 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+}
+
+.cta p {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons (from previous code) */
+.btn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: 0.5s;
+    }
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #3a86ff;
+    color: #3a86ff;
+}
+
+    .btn-outline:hover {
+        background: #3a86ff;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(58, 134, 255, 0.3);
+    }
+
+.btn-primary {
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    color: white;
+}
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(58, 134, 255, 0.4);
+    }
+
+.btn-secondary {
+    background: #ff006e;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background: #e0005e;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 0, 110, 0.4);
+    }
+
+.btn-accent {
+    background: #8338ec;
+    color: white;
+}
+
+    .btn-accent:hover {
+        background: #7229d4;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(131, 56, 236, 0.4);
+    }

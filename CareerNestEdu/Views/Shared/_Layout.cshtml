@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CareerNestEdu</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CareerNestEdu.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="careernest.html" class="logo">
+                    <img src="/image/Career Nest logo3.jpg" style="height: 100px; width: auto; border-radius: 8px;">
+                    <div style="display: flex; flex-direction: column; line-height: 1.1;">
+                        <span>CareerNestEdu</span>
+                        <span style="font-size: 13px; color:  #8338ec;">Connecting Talent to Opportunities</span>
+                        <!-- <span class="slogan">Connecting Talent to Opportunities</span> -->
+                    </div>
+                </a>
+                <div class="nav-links">
+                    <a asp-controller="Home" asp-action="Index" style="text-decoration:none;">Home</a>
+                    <a asp-controller="" asp-action="" style="text-decoration:none;">Features</a>
+                    <a asp-controller="" asp-action="" style="text-decoration:none;">Partnerships</a>
+                    <a asp-controller="" asp-action="" style="text-decoration:none;">Colleges</a>
+                </div>
+                <div class="auth-buttons">
+                    <a class="btn btn-primary" id="currentAuthBtn" asp-controller="Home" asp-action="LoginSignup">Sign Up</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>CareerNest</h3>
+                        <p>Connecting talent to opportunities in industries and hotels.</p>
+                        <div class="social-links">
+                            <a href="#1"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#1"><i class="fab fa-twitter"></i></a>
+                            <a href="#1"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#1"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>For Job Seekers</h3>
+                        <ul class="footer-links">
+                            <li><a href=""><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Create Profile</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Job Alerts</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Career Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>For Employers</h3>
+                        <ul class="footer-links">
+                            <li><a ><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Search Candidates</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Pricing Plans</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Employer Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>For Colleges</h3>
+                        <ul class="footer-links">
+                            <li><a ><i class="fas fa-chevron-right"></i> Partnership Program</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Student Placement</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> Industry Connections</a></li>
+                            <li><a ><i class="fas fa-chevron-right"></i> College Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-links">
+                            <li><a href="#1"><i class="fas fa-map-marker-alt"></i> 110044, Badarpur Borader, Delhi NCR</a></li>
+                            <li><a href="#1"><i class="fas fa-phone"></i> 9958496684</a></li>
+                            <li><a href="#1"><i class="fas fa-envelope"></i> info@careernest.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 CareerNest. All rights reserved. | Connecting Talent to Opportunities</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to top button -->
+        <div class="scroll-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

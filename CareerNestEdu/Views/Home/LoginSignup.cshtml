@@ -1,0 +1,676 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerNest - Login & Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4cc9f0;
+            --error: #e63946;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-illustration {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .illustration-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .illustration-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .auth-visual {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+            .auth-visual h3 {
+                margin: 15px 0 10px;
+                font-weight: 600;
+            }
+
+        .auth-forms {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .form-toggle {
+            display: flex;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background: #f1f3f9;
+            padding: 5px;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+            .toggle-btn.active {
+                background: white;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                color: var(--primary);
+            }
+
+        .auth-form {
+            display: block;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .form-title h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--dark);
+                margin-bottom: 10px;
+            }
+
+            .form-title p {
+                color: var(--gray);
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+                color: var(--dark);
+            }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+            .input-with-icon i {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--gray);
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #e1e5eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+
+            .remember-me input {
+                margin-right: 8px;
+            }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+            .forgot-password:hover {
+                text-decoration: underline;
+            }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+            .submit-btn:hover {
+                background: var(--primary-dark);
+            }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+            .divider::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: #e1e5eb;
+            }
+
+            .divider span {
+                background: white;
+                padding: 0 15px;
+                color: var(--gray);
+                font-size: 0.9rem;
+            }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: 1px solid #e1e5eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .social-btn:hover {
+                background: #f8f9fa;
+            }
+
+            .social-btn i {
+                margin-right: 8px;
+                font-size: 1.1rem;
+            }
+
+        .google i {
+            color: #db4437;
+        }
+
+        .linkedin i {
+            color: #0077b5;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .form-footer p {
+                color: var(--gray);
+            }
+
+            .form-footer a {
+                color: var(--primary);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .form-footer a:hover {
+                    text-decoration: underline;
+                }
+
+        .user-type-selection {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .user-type-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            border: 1px solid #e1e5eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .user-type-btn.active {
+                border-color: var(--primary);
+                background: rgba(67, 97, 238, 0.05);
+            }
+
+            .user-type-btn i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+                color: var(--primary);
+            }
+
+        .terms-agreement {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+            .terms-agreement input {
+                margin-right: 10px;
+                margin-top: 3px;
+            }
+
+            .terms-agreement label {
+                font-size: 0.9rem;
+                color: var(--gray);
+            }
+
+            .terms-agreement a {
+                color: var(--primary);
+                text-decoration: none;
+            }
+
+                .terms-agreement a:hover {
+                    text-decoration: underline;
+                }
+
+        /* Responsive Design */
+        media (max-width: 900px) {
+            .auth-container
+
+        {
+            flex-direction: column;
+        }
+
+        .auth-illustration {
+            padding: 40px 20px;
+        }
+
+        .illustration-content h2 {
+            font-size: 2rem;
+        }
+
+        }
+
+        media (max-width: 480px) {
+            .auth-forms
+
+        {
+            padding: 20px;
+        }
+
+        .user-type-selection {
+            flex-direction: column;
+        }
+
+        .social-login {
+            flex-direction: column;
+        }
+
+        }</style>
+</head>
+<body>
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-illustration">
+            <div class="illustration-content">
+                <h2>Your Career Journey Starts Here</h2>
+                <p>Join thousands of students, job seekers, colleges, and employers who have found success with CareerNest.</p>
+                <div class="auth-visual">
+                    <div style="text-align: center;">
+                        <i class="fas fa-user-check" style="font-size: 80px; margin-bottom: 20px;"></i>
+                        <h3>Secure Authentication</h3>
+                        <p>Your data is protected with industry-standard security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-forms">
+            <div class="form-container">
+                <div class="form-toggle">
+                    <div class="toggle-btn active" id="loginToggle">Login</div>
+                    <div class="toggle-btn" id="signupToggle">Sign Up</div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form" id="loginForm">
+                    <div class="form-title">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your CareerNest account</p>
+                    </div>
+
+                    <form id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                                <span class="password-toggle" id="loginPasswordToggle">
+                                    <i class="fas fa-eye" style="margin-left:-30px;"></i>
+                                </span>
+                            </div>
+                            <div class="error-message">Password must be at least 8 characters</div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Sign In</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <div class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </div>
+                        <div class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" id="switchToSignup">Sign up here</a></p>
+                    </div>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="auth-form" id="signupForm" style="display: none;">
+                    <div class="form-title">
+                        <h2>Create Account</h2>
+                        <p>Join CareerNest to find your dream job or talent</p>
+                    </div>
+
+                    <form id="signupFormElement">
+                        <div class="user-type-selection">
+                            <div class="user-type-btn active" data-type="jobseeker">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Job Seeker</span>
+                            </div>
+                            <div class="user-type-btn" data-type="employer">
+                                <i class="fas fa-building"></i>
+                                <span>Employer</span>
+                            </div>
+                            <div class="user-type-btn" data-type="college">
+                                <i class="fas fa-university"></i>
+                                <span>College</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="userType" value="jobseeker">
+
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="signupName" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="error-message">Please enter your full name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+
+                        <!-- Phone Number Field Added Here -->
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="signupPhone" class="form-control" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="error-message">Please enter a valid phone number</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
+                                <span class="password-toggle" id="signupPasswordToggle">
+                                    <i class="fas fa-eye" style="margin-left:-30px;"></i>
+                                </span>
+                            </div>
+                            <div class="error-message">Password must be at least 8 characters with letters and numbers</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                            </div>
+                            <div class="error-message">Passwords do not match</div>
+                        </div>
+
+                        <div class="terms-agreement">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Create Account</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <div class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </div>
+                        <div class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </div>
+                    </div>
+
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" id="switchToLogin">Sign in here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between login and signup forms
+        document.getElementById('loginToggle').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginToggle').classList.add('active');
+            document.getElementById('signupToggle').classList.remove('active');
+        });
+
+        document.getElementById('signupToggle').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('loginToggle').classList.remove('active');
+            document.getElementById('signupToggle').classList.add('active');
+        });
+
+        // Switch between forms using footer links
+        document.getElementById('switchToSignup').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('loginToggle').classList.remove('active');
+            document.getElementById('signupToggle').classList.add('active');
+        });
+
+        document.getElementById('switchToLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginToggle').classList.add('active');
+            document.getElementById('signupToggle').classList.remove('active');
+        });
+
+        // User type selection
+        const userTypeBtns = document.querySelectorAll('.user-type-btn');
+        const userTypeInput = document.getElementById('userType');
+
+        userTypeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                userTypeBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                userTypeInput.value = this.getAttribute('data-type');
+            });
+        });
+
+        // Password visibility toggle
+        document.getElementById('loginPasswordToggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('loginPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        document.getElementById('signupPasswordToggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('signupPassword');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Form validation
+        document.getElementById('loginFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your login validation logic here
+            console.log('Login form submitted');
+        });
+
+        document.getElementById('signupFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your signup validation logic here
+            console.log('Signup form submitted');
+        });
+    </script>
+</body>
+</html>
