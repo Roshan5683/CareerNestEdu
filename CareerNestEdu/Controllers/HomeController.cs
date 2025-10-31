@@ -17,11 +17,19 @@ namespace CareerNestEdu.Controllers
         {
             return View();
         }
-        public IActionResult Features()
+        public IActionResult Partnership()
         {
-            return View();
+        return View();
         }
 
+        public IActionResult Feature()
+        {
+        return View();
+        }
+        public IActionResult College()
+        {
+        return View();
+        }
         public IActionResult LoginSignup()
         {
             return View();
