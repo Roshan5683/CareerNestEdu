@@ -17,6 +17,10 @@ namespace CareerNestEdu.Controllers
         {
             return View();
         }
+        public IActionResult Features()
+        {
+            return View();
+        }
 
         public IActionResult LoginSignup()
         {
