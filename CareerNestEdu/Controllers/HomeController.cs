@@ -21,6 +21,10 @@ namespace CareerNestEdu.Controllers
         {
         return View();
         }
+        public IActionResult Collegepartner()
+        {
+            return View();
+        }
 
         public IActionResult Feature()
         {
