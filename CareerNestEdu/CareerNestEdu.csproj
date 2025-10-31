@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\image\Career Nest logo3.jpg" />
+    <Compile Remove="Views\Account\**" />
+    <Content Remove="Views\Account\**" />
+    <EmbeddedResource Remove="Views\Account\**" />
+    <None Remove="Views\Account\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Account\" />
+    <None Include="wwwroot\image\Career Nest logo3.jpg" />
   </ItemGroup>
 
 </Project>
