@@ -10,4 +10,8 @@
     <None Include="wwwroot\image\Career Nest logo3.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+
 </Project>
