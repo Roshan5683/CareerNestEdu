@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Talent - CareerNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Hiringtalent.css">
+</head>
+<body>
+    <!-- Main Content -->
+    <main>
+        <!-- Post a Job Page -->
+        <section id="post-job-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Post a Job</h1>
+                    <p>Create a compelling job posting to attract the best talent for your organization</p>
+                </div>
+
+                <div class="job-form-container">
+                    <form id="jobPostForm">
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-info-circle"></i> Job Details</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Job Title *</label>
+                                <input type="text" class="form-control" placeholder="e.g. Frontend Developer" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Job Type *</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select job type</option>
+                                        <option value="full-time">Full-time</option>
+                                        <option value="part-time">Part-time</option>
+                                        <option value="contract">Contract</option>
+                                        <option value="internship">Internship</option>
+                                        <option value="temporary">Temporary</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Experience Level *</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select experience level</option>
+                                        <option value="entry">Entry Level (0-2 years)</option>
+                                        <option value="mid">Mid Level (2-5 years)</option>
+                                        <option value="senior">Senior Level (5+ years)</option>
+                                        <option value="executive">Executive</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Location *</label>
+                                    <input type="text" class="form-control" placeholder="e.g. Delhi, Mumbai, Remote" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Salary Range (₹)</label>
+                                    <input type="text" class="form-control" placeholder="e.g. 6,00,000 - 10,00,000">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Job Description *</label>
+                                <textarea class="form-control" rows="6" placeholder="Describe the role, responsibilities, and requirements..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-tasks"></i> Requirements</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Required Skills *</label>
+                                <input type="text" class="form-control" placeholder="Add skills separated by commas (e.g. JavaScript, React, Node.js)" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Education Level</label>
+                                    <select class="form-control">
+                                        <option value="">Select education level</option>
+                                        <option value="high-school">High School</option>
+                                        <option value="diploma">Diploma</option>
+                                        <option value="bachelor">Bachelor's Degree</option>
+                                        <option value="master">Master's Degree</option>
+                                        <option value="phd">PhD</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Industry *</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select industry</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="hospitality">Hospitality</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="finance">Finance</option>
+                                        <option value="manufacturing">Manufacturing</option>
+                                        <option value="education">Education</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-building"></i> Company Details</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Company Name *</label>
+                                <input type="text" class="form-control" placeholder="Enter your company name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Company Description</label>
+                                <textarea class="form-control" rows="4" placeholder="Tell candidates about your company culture, mission, and values"></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Website</label>
+                                    <input type="url" class="form-control" placeholder="https://example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Contact Email *</label>
+                                    <input type="email" class="form-control" placeholder="contact@company.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title"><i class="fas fa-cog"></i> Application Settings</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Application Deadline</label>
+                                <input type="date" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How to Apply</label>
+                                <textarea class="form-control" rows="3" placeholder="Any specific application instructions"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.2rem;">Post Job</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse Candidates Page -->
+        <section id="browse-candidates-page" class="page-content" style="display: none;">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Browse Candidates</h1>
+                    <p>Find qualified candidates with the right skills and experience for your open positions</p>
+                </div>
+
+                <div class="search-filters">
+                    <h3 style="margin-bottom: 20px;">Filter Candidates</h3>
+
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="form-label">Keywords</label>
+                            <input type="text" class="form-control" placeholder="Search by skills, job title, etc.">
+                        </div>
+                        <div class="filter-group">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" placeholder="City, state, or remote">
+                        </div>
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="form-label">Experience Level</label>
+                            <select class="form-control">
+                                <option value="">Any experience level</option>
+                                <option value="entry">Entry Level (0-2 years)</option>
+                                <option value="mid">Mid Level (2-5 years)</option>
+                                <option value="senior">Senior Level (5+ years)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="form-label">Education Level</label>
+                            <select class="form-control">
+                                <option value="">Any education level</option>
+                                <option value="high-school">High School</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="bachelor">Bachelor's Degree</option>
+                                <option value="master">Master's Degree</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="form-label">Industry</label>
+                            <select class="form-control">
+                                <option value="">Any industry</option>
+                                <option value="technology">Technology</option>
+                                <option value="hospitality">Hospitality</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="manufacturing">Manufacturing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="form-label">Job Type</label>
+                            <select class="form-control">
+                                <option value="">Any job type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="margin-top: 20px;">Search Candidates</button>
+                </div>
+
+                <div class="candidates-grid">
+                    <!-- Candidate 1 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">RS</div>
+                            <div class="candidate-info">
+                                <h3>Rohit Sharma</h3>
+                                <p>Frontend Developer</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">3 years of experience building responsive web applications. Passionate about creating intuitive user experiences.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 2 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">PS</div>
+                            <div class="candidate-info">
+                                <h3>Priya Singh</h3>
+                                <p>Data Scientist</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Data Visualization</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">5 years of experience in data analysis and machine learning. Strong background in statistical modeling and predictive analytics.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 3 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">AK</div>
+                            <div class="candidate-info">
+                                <h3>Amit Kumar</h3>
+                                <p>DevOps Engineer</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">CI/CD</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">4 years of experience in cloud infrastructure and DevOps practices. Expertise in automating deployment processes.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 4 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">NM</div>
+                            <div class="candidate-info">
+                                <h3>Neha Mehta</h3>
+                                <p>UX Designer</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">User Research</span>
+                            <span class="skill-tag">Wireframing</span>
+                            <span class="skill-tag">Prototyping</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">2 years of experience in user-centered design. Skilled in creating intuitive interfaces and conducting user testing.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 5 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">AS</div>
+                            <div class="candidate-info">
+                                <h3>Anjali Sharma</h3>
+                                <p>Product Manager</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Product Strategy</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Market Research</span>
+                            <span class="skill-tag">Roadmapping</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">6 years of experience in product management. Strong background in defining product vision and leading cross-functional teams.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+
+                    <!-- Candidate 6 -->
+                    <div class="candidate-card">
+                        <div class="candidate-header">
+                            <div class="candidate-avatar">RV</div>
+                            <div class="candidate-info">
+                                <h3>Rahul Verma</h3>
+                                <p>Backend Developer</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
+                            </div>
+                        </div>
+
+                        <div class="candidate-skills">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">API Design</span>
+                            <span class="skill-tag">Microservices</span>
+                        </div>
+
+                        <p style="margin-bottom: 20px; color: var(--gray);">4 years of experience in backend development. Expertise in building scalable APIs and database design.</p>
+
+                        <div class="candidate-actions">
+                            <button class="btn btn-primary">View Profile</button>
+                            <button class="btn btn-outline">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Hiring Page -->
+        <section id="main-hiring-page" class="page-content">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Find Your Next Great Hire</h1>
+                        <p>Connect with qualified candidates, streamline your hiring process, and build your dream team with CareerNest.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" id="postJobBtn">Post a Job</button>
+                            <button class="btn btn-secondary" id="browseCandidatesBtn">Browse Candidates</button>
+                            <button class="btn btn-outline" id="scheduleDemoBtn">Schedule a Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <section class="stats">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat1">15,600</span>
+                            <span class="stat-label">Jobs Posted</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat2">11,200</span>
+                            <span class="stat-label">Successful Hires</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat3">420</span>
+                            <span class="stat-label">Happy Companies</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat4">185</span>
+                            <span class="stat-label">Partner Colleges</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions Section -->
+            <section class="quick-actions">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Quick Actions</h2>
+                        <p>Get started with these quick actions to find and hire the best talent</p>
+                    </div>
+
+                    <div class="action-cards">
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Post a Job</h3>
+                            <p>Create and publish job openings to reach thousands of qualified candidates.</p>
+                            <button class="btn btn-primary" id="postJobActionBtn">Post a Job</button>
+                        </div>
+
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Browse Candidates</h3>
+                            <p>Search our database of qualified candidates by skills, experience, and location.</p>
+                            <button class="btn btn-secondary" id="browseCandidatesActionBtn">Browse Candidates</button>
+                        </div>
+
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Schedule a Demo</h3>
+                            <p>Book a personalized demo to see how CareerNest can transform your hiring process.</p>
+                            <button class="btn btn-accent" id="scheduleDemoActionBtn">Schedule Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Employer Features Section -->
+            <section class="employer-features" id="features">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Employer Features</h2>
+                        <p>Everything you need to find, attract, and hire the best talent for your organization</p>
+                    </div>
+
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Post Jobs Easily</h4>
+                                <p>Create and publish job openings with our intuitive job posting system in minutes.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Advanced Candidate Search</h4>
+                                <p>Filter candidates by skills, experience, education, and location to find the perfect match.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Company Profile</h4>
+                                <p>Showcase your company culture, values, and benefits to attract top talent.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Application Management</h4>
+                                <p>Track, organize, and manage all applications in one centralized dashboard.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>College Partnerships</h4>
+                                <p>Connect directly with colleges to hire recent graduates and interns.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Analytics & Insights</h4>
+                                <p>Gain valuable insights into your hiring process with detailed analytics and reports.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works" id="how-it-works">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>How It Works</h2>
+                        <p>Simple steps to find and hire the right candidates for your organization</p>
+                    </div>
+
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Create Company Profile</h3>
+                            <p>Set up your company profile with details about your culture, values, and what makes you unique.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Post Job Openings</h3>
+                            <p>Create compelling job descriptions and post them to reach thousands of qualified candidates.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Screen Candidates</h3>
+                            <p>Use our advanced filters to screen candidates and identify the best matches for your roles.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Interview & Hire</h3>
+                            <p>Schedule interviews, communicate with candidates, and make offers all within our platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="pricing" id="pricing">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Pricing Plans</h2>
+                        <p>Flexible pricing options designed to meet the needs of businesses of all sizes</p>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3 class="pricing-name">Starter</h3>
+                                <div class="pricing-price">₹4,999</div>
+                                <div class="pricing-period">per month</div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Post up to 5 jobs</li>
+                                <li><i class="fas fa-check"></i> Basic candidate search</li>
+                                <li><i class="fas fa-check"></i> Application management</li>
+                                <li><i class="fas fa-check"></i> Email support</li>
+                            </ul>
+                            <button class="btn btn-outline" id="starterPlanBtn">Get Started</button>
+                        </div>
+
+                        <div class="pricing-card popular">
+                            <div class="pricing-header">
+                                <h3 class="pricing-name">Professional</h3>
+                                <div class="pricing-price">₹9,999</div>
+                                <div class="pricing-period">per month</div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Post up to 15 jobs</li>
+                                <li><i class="fas fa-check"></i> Advanced candidate search</li>
+                                <li><i class="fas fa-check"></i> Application management</li>
+                                <li><i class="fas fa-check"></i> Candidate messaging</li>
+                                <li><i class="fas fa-check"></i> Basic analytics</li>
+                                <li><i class="fas fa-check"></i> Priority support</li>
+                            </ul>
+                            <button class="btn btn-primary" id="professionalPlanBtn">Get Started</button>
+                        </div>
+
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3 class="pricing-name">Enterprise</h3>
+                                <div class="pricing-price">₹19,999</div>
+                                <div class="pricing-period">per month</div>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Unlimited job posts</li>
+                                <li><i class="fas fa-check"></i> Premium candidate search</li>
+                                <li><i class="fas fa-check"></i> Advanced analytics</li>
+                                <li><i class="fas fa-check"></i> Custom branding</li>
+                                <li><i class="fas fa-check"></i> API access</li>
+                                <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                            </ul>
+                            <button class="btn btn-outline" id="enterprisePlanBtn">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials" id="testimonials">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Employer Success Stories</h2>
+                        <p>What companies are saying about CareerNest</p>
+                    </div>
+
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "CareerNest helped us reduce our time-to-hire by 40%. The quality of candidates we're getting is significantly better than other platforms we've used."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AM</div>
+                                <div class="author-info">
+                                    <h4>Arpita Mehra</h4>
+                                    <p>HR Manager, Tech Industry</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "The college partnership feature has been a game-changer for our internship program. We've hired 12 talented students directly from partner colleges this year."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RS</div>
+                                <div class="author-info">
+                                    <h4>Rajesh Sharma</h4>
+                                    <p>Recruitment Director, Hospitality</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "As a growing startup, we needed to hire quickly without compromising on quality. CareerNest delivered exceptional candidates that fit our culture perfectly."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PS</div>
+                                <div class="author-info">
+                                    <h4>Priya Singh</h4>
+                                    <p>CEO, Tech Startup</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq" id="faq">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Frequently Asked Questions</h2>
+                        <p>Everything you need to know about hiring with CareerNest</p>
+                    </div>
+
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How long does it take to post a job?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can post a job in just a few minutes. Our intuitive job posting form guides you through the process, and once submitted, your job will be live immediately.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I edit or remove a job posting?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can edit or remove your job postings at any time through your employer dashboard. Changes are reflected immediately.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>How do I search for candidates?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our advanced candidate search allows you to filter by skills, experience, education, location, and more. You can save your search criteria and set up alerts for new candidates that match your requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>What industries do you specialize in?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>CareerNest serves a wide range of industries including technology, hospitality, healthcare, finance, manufacturing, and more. Our college partnerships also provide access to graduates from specialized programs.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>Can I contact candidates directly?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, with our Professional and Enterprise plans, you can message candidates directly through our platform. This helps streamline communication while maintaining privacy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2>Ready to Find Your Next Great Hire?</h2>
+                        <p>Join thousands of companies that have found exceptional talent through CareerNest.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-secondary pulse" id="ctaPostJobBtn">Post a Job</button>
+                            <button class="btn btn-outline" id="ctaBrowseCandidatesBtn">Browse Candidates</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Schedule Demo Modal -->
+    <div class="modal" id="scheduleDemoModal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeScheduleDemoModal">&times;</span>
+            <h2 class="modal-title">Schedule a Demo</h2>
+            <p>Book a personalized demo to see how CareerNest can transform your hiring process.</p>
+
+            <form class="form-container" style="box-shadow: none; padding: 30px 0;">
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your company name">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Job Title</label>
+                        <input type="text" class="form-control" placeholder="Enter your job title">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="Enter your phone number">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Preferred Date</label>
+                    <input type="date" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Preferred Time</label>
+                    <select class="form-control">
+                        <option value="">Select preferred time</option>
+                        <option value="9am">9:00 AM</option>
+                        <option value="10am">10:00 AM</option>
+                        <option value="11am">11:00 AM</option>
+                        <option value="12pm">12:00 PM</option>
+                        <option value="1pm">1:00 PM</option>
+                        <option value="2pm">2:00 PM</option>
+                        <option value="3pm">3:00 PM</option>
+                        <option value="4pm">4:00 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Additional Notes (Optional)</label>
+                    <textarea class="form-control" rows="3" placeholder="Any specific areas you'd like to focus on during the demo"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Schedule Demo</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/js/Hiringtalent.js"></script>
+</body>
+</html>
