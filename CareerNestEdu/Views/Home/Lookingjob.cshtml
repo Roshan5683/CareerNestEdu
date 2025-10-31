@@ -1,0 +1,653 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs - CareerNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/lookingjob.css">
+</head>
+<body>
+    <!-- Job Search Hero -->
+    <section class="job-hero">
+        <div class="container">
+            <div class="job-hero-content">
+                <h1>Find Your Dream Job in India</h1>
+                <p>Discover thousands of job opportunities from top Indian companies. Filter by industry, location, and job type to find the perfect match for your skills and career goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="container">
+        <div class="search-section">
+            <form class="search-form" id="job-search-form">
+                <div class="search-group">
+                    <label for="job-title">Job Title or Keywords</label>
+                    <input type="text" id="job-title" class="search-input" placeholder="e.g. Software Engineer, Marketing Manager">
+                </div>
+                <div class="search-group">
+                    <label for="location">Location</label>
+                    <select id="location" class="search-input">
+                        <option value="">All India</option>
+                        <option value="delhi">Delhi NCR</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="pune">Pune</option>
+                        <option value="ahmedabad">Ahmedabad</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <label for="job-type">Job Type</label>
+                    <select id="job-type" class="search-input">
+                        <option value="">Any Type</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <button type="submit" class="btn btn-primary search-button">
+                        <i class="fas fa-search"></i> Search Jobs
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="job-listings">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Job Openings in India</h2>
+                <p>Browse through our curated list of job opportunities with salaries in INR</p>
+            </div>
+
+            <div class="job-filters">
+                <div class="filter-group">
+                    <label for="industry">Industry</label>
+                    <select id="industry" class="filter-select">
+                        <option value="">All Industries</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="finance">Finance</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="education">Education</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="hr">Human Resources</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="experience">Experience Level</label>
+                    <select id="experience" class="filter-select">
+                        <option value="">Any Experience</option>
+                        <option value="entry">Entry Level (0-2 years)</option>
+                        <option value="mid">Mid Level (2-5 years)</option>
+                        <option value="senior">Senior Level (5+ years)</option>
+                        <option value="executive">Executive</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="salary">Salary Range (INR)</label>
+                    <select id="salary" class="filter-select">
+                        <option value="">Any Salary</option>
+                        <option value="0-300000">₹0 - ₹3 LPA</option>
+                        <option value="300000-600000">₹3 - ₹6 LPA</option>
+                        <option value="600000-1200000">₹6 - ₹12 LPA</option>
+                        <option value="1200000+">₹12 LPA+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="date-posted">Date Posted</label>
+                    <select id="date-posted" class="filter-select">
+                        <option value="">Any Time</option>
+                        <option value="1">Last 24 Hours</option>
+                        <option value="7">Last Week</option>
+                        <option value="30">Last Month</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="job-grid" id="job-grid">
+                <!-- Job cards will be dynamically populated here -->
+            </div>
+
+            <div class="view-more-container">
+                <button class="btn btn-outline" id="load-more-jobs">Load More Jobs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Seeker Resources -->
+    <section class="job-resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resources for Job Seekers</h2>
+                <p>Tools and guidance to help you succeed in your job search</p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Resume Builder</h3>
+                    <p>Create a professional resume that stands out to employers with our easy-to-use resume builder.</p>
+                    <button class="btn btn-outline" id="open-resume-builder">Build Your Resume</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Career Guidance</h3>
+                    <p>Get personalized career advice and guidance from our team of career experts.</p>
+                    <button class="btn btn-outline" id="open-career-advice">Get Advice</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Interview Prep</h3>
+                    <p>Prepare for your next interview with our practice questions and virtual interview simulator.</p>
+                    <button class="btn btn-outline" id="open-interview-practice">Practice Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from job seekers who found their dream jobs through CareerNest</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "CareerNest helped me land my dream job as a Frontend Developer at TechCorp. The platform made it easy to find relevant opportunities and the application process was seamless."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SD</div>
+                        <div class="author-info">
+                            <h4>Sarah Davis</h4>
+                            <p>Frontend Developer at TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "After months of searching, I found the perfect hospitality management position through CareerNest. The job matching algorithm really understood my skills and preferences."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Hotel Manager at Grand Hotels</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a recent graduate, I was struggling to find entry-level positions. CareerNest connected me with companies looking for fresh talent, and I landed a great role in just 3 weeks!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EP</div>
+                        <div class="author-info">
+                            <h4>Emily Parker</h4>
+                            <p>Marketing Coordinator at MarketEdge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Next Opportunity?</h2>
+                <p>Join thousands of job seekers who have found their dream jobs through CareerNest. Create your profile today and let employers find you!</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-secondary pulse" id="open-create-profile">Create Your Profile</button>
+                    <button class="btn btn-primary" id="open-upload-resume">Upload Your Resume</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Builder Modal -->
+    <div class="modal" id="resume-builder-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resume Builder</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="resume-form">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" class="form-control" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="job-title">Professional Title</label>
+                                <input type="text" id="job-title" class="form-control" placeholder="e.g. Software Engineer">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+91 9876543210">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="form-control" placeholder="City, State">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-image"></i> Profile Picture</h3>
+                        <div class="profile-picture-section">
+                            <div class="profile-preview" id="profile-preview">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-upload">
+                                <input type="file" id="profile-picture" class="file-input" accept="image/*">
+                                <label for="profile-picture" class="file-label">
+                                    <i class="fas fa-upload"></i> Upload Profile Picture
+                                </label>
+                                <p class="help-text">Recommended size: 400x400 pixels</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-video"></i> Short Video Introduction</h3>
+                        <div class="video-section">
+                            <div class="video-preview" id="video-preview">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="video-controls">
+                                <button class="video-btn record" id="record-btn">
+                                    <i class="fas fa-record-vinyl"></i> Start Recording
+                                </button>
+                                <button class="video-btn stop" id="stop-btn" disabled>
+                                    <i class="fas fa-stop"></i> Stop Recording
+                                </button>
+                            </div>
+                            <p class="help-text">Record a 30-60 second video introducing yourself</p>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="degree">Degree</label>
+                                <input type="text" id="degree" class="form-control" placeholder="e.g. Bachelor of Technology">
+                            </div>
+                            <div class="form-group">
+                                <label for="university">University</label>
+                                <input type="text" id="university" class="form-control" placeholder="University Name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="graduation-year">Graduation Year</label>
+                                <input type="number" id="graduation-year" class="form-control" placeholder="YYYY">
+                            </div>
+                            <div class="form-group">
+                                <label for="gpa">GPA</label>
+                                <input type="text" id="gpa" class="form-control" placeholder="e.g. 3.8/4.0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" class="form-control" placeholder="Company Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position</label>
+                                <input type="text" id="position" class="form-control" placeholder="Your Position">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-date">Start Date</label>
+                                <input type="month" id="start-date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date">End Date</label>
+                                <input type="month" id="end-date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="responsibilities">Responsibilities</label>
+                            <textarea id="responsibilities" class="form-control" rows="3" placeholder="Describe your responsibilities and achievements"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-tools"></i> Skills</h3>
+                        <div class="form-group">
+                            <label for="skills">Add Skills (comma separated)</label>
+                            <input type="text" id="skills" class="form-control" placeholder="e.g. JavaScript, React, Node.js, Python">
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" id="generate-resume">Generate Resume</button>
+
+                    <div class="resume-preview" id="resume-preview">
+                        <div class="preview-header">
+                            <div class="preview-profile" id="preview-profile">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="preview-info">
+                                <h2 id="preview-name">Your Name</h2>
+                                <p id="preview-title">Professional Title</p>
+                                <p id="preview-contact">Email | Phone | Location</p>
+                            </div>
+                        </div>
+
+                        <div class="preview-section">
+                            <h3>Education</h3>
+                            <p id="preview-education">Degree, University, Year</p>
+                        </div>
+
+                        <div class="preview-section">
+                            <h3>Experience</h3>
+                            <p id="preview-experience">Position at Company (Dates)</p>
+                            <p id="preview-responsibilities">Responsibilities description</p>
+                        </div>
+
+                        <div class="preview-section">
+                            <h3>Skills</h3>
+                            <p id="preview-skills">Skill 1, Skill 2, Skill 3</p>
+                        </div>
+                    </div>
+
+                    <div class="download-section">
+                        <button class="btn btn-secondary" id="download-resume">
+                            <i class="fas fa-download"></i> Download Resume as PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Profile Modal -->
+    <div class="modal" id="create-profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Profile</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-form">
+                    <div class="profile-section">
+                        <h3><i class="fas fa-user"></i> Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-name">Full Name</label>
+                                <input type="text" id="profile-name" class="form-control" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">Email</label>
+                                <input type="email" id="profile-email" class="form-control" placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-phone">Phone</label>
+                                <input type="tel" id="profile-phone" class="form-control" placeholder="+91 9876543210">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-location">Location</label>
+                                <select id="profile-location" class="form-control">
+                                    <option value="">Select Location</option>
+                                    <option value="delhi">Delhi NCR</option>
+                                    <option value="mumbai">Mumbai</option>
+                                    <option value="bangalore">Bangalore</option>
+                                    <option value="hyderabad">Hyderabad</option>
+                                    <option value="chennai">Chennai</option>
+                                    <option value="kolkata">Kolkata</option>
+                                    <option value="pune">Pune</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3><i class="fas fa-briefcase"></i> Professional Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-title">Professional Title</label>
+                                <input type="text" id="profile-title" class="form-control" placeholder="e.g. Software Engineer">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-industry">Industry</label>
+                                <select id="profile-industry" class="form-control">
+                                    <option value="">Select Industry</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="hospitality">Hospitality</option>
+                                    <option value="education">Education</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="sales">Sales</option>
+                                    <option value="hr">Human Resources</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-experience">Experience Level</label>
+                                <select id="profile-experience" class="form-control">
+                                    <option value="">Select Experience</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (2-5 years)</option>
+                                    <option value="senior">Senior Level (5+ years)</option>
+                                    <option value="executive">Executive</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-salary">Expected Salary (INR)</label>
+                                <select id="profile-salary" class="form-control">
+                                    <option value="">Select Salary Range</option>
+                                    <option value="0-300000">₹0 - ₹3 LPA</option>
+                                    <option value="300000-600000">₹3 - ₹6 LPA</option>
+                                    <option value="600000-1200000">₹6 - ₹12 LPA</option>
+                                    <option value="1200000+">₹12 LPA+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-skills">Skills</label>
+                            <input type="text" id="profile-skills" class="form-control" placeholder="e.g. JavaScript, React, Node.js, Python">
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-degree">Highest Degree</label>
+                                <input type="text" id="profile-degree" class="form-control" placeholder="e.g. Bachelor of Technology">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-university">University</label>
+                                <input type="text" id="profile-university" class="form-control" placeholder="University Name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-graduation">Graduation Year</label>
+                                <input type="number" id="profile-graduation" class="form-control" placeholder="YYYY">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-gpa">GPA</label>
+                                <input type="text" id="profile-gpa" class="form-control" placeholder="e.g. 3.8/4.0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-outline">Save as Draft</button>
+                        <button class="btn btn-primary" id="complete-profile">Complete Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Resume Modal -->
+    <div class="modal" id="upload-resume-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Your Resume</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="resume-upload-section">
+                    <div class="resume-upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <div class="resume-upload-text">
+                        <h3>Upload Your Resume</h3>
+                        <p>Supported formats: PDF, DOC, DOCX (Max size: 5MB)</p>
+                    </div>
+                    <input type="file" id="resume-file" class="resume-file-input" accept=".pdf,.doc,.docx">
+                    <label for="resume-file" class="resume-file-label">
+                        <i class="fas fa-cloud-upload-alt"></i> Choose File
+                    </label>
+                </div>
+
+                <div class="uploaded-resume" id="uploaded-resume">
+                    <div class="resume-info">
+                        <div class="resume-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resume-details">
+                            <h4 id="resume-file-name">Your_Resume.pdf</h4>
+                            <p id="resume-file-size">2.4 MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-actions" style="margin-top: 30px;">
+                    <button class="btn btn-outline">Cancel</button>
+                    <button class="btn btn-primary" id="save-resume">Save Resume</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Advice Modal -->
+    <div class="modal" id="career-advice-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Career Guidance & Advice</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="advice-categories">
+                    <div class="advice-category" data-category="resume">
+                        <h3><i class="fas fa-file-alt"></i> Resume Writing</h3>
+                        <p>Learn how to create a resume that stands out and gets you interviews.</p>
+                    </div>
+                    <div class="advice-category" data-category="interview">
+                        <h3><i class="fas fa-comments"></i> Interview Skills</h3>
+                        <p>Master the art of interviewing and learn how to answer common questions.</p>
+                    </div>
+                    <div class="advice-category" data-category="career">
+                        <h3><i class="fas fa-chart-line"></i> Career Growth</h3>
+                        <p>Strategies for advancing your career and achieving your professional goals.</p>
+                    </div>
+                    <div class="advice-category" data-category="networking">
+                        <h3><i class="fas fa-network-wired"></i> Networking</h3>
+                        <p>Build professional relationships that can help your career.</p>
+                    </div>
+                </div>
+
+                <div class="advice-content" id="advice-content">
+                    <div class="advice-item">
+                        <h4>Choose a category to view career advice</h4>
+                        <p>Select one of the categories above to get personalized career guidance and tips.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interview Practice Modal -->
+    <div class="modal" id="interview-practice-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Interview Practice</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="practice-options">
+                    <div class="practice-option" data-type="technical">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technical Interviews</h3>
+                        <p>Practice coding challenges and technical questions.</p>
+                    </div>
+                    <div class="practice-option" data-type="behavioral">
+                        <i class="fas fa-users"></i>
+                        <h3>Behavioral Interviews</h3>
+                        <p>Prepare for questions about your experience and behavior.</p>
+                    </div>
+                    <div class="practice-option" data-type="hr">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>HR Interviews</h3>
+                        <p>Get ready for general HR and culture-fit questions.</p>
+                    </div>
+                </div>
+
+                <div class="question-list" id="question-list">
+                    <div class="question-item">
+                        <h4>Select an interview type to begin practice</h4>
+                        <p>Choose from technical, behavioral, or HR interviews to start practicing common questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="~/js/lookingjob.js"></script>
+</body>
+</html>

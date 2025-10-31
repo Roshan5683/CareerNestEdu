@@ -25,6 +25,14 @@ namespace CareerNestEdu.Controllers
         {
             return View();
         }
+        public IActionResult Lookingjob()
+        {
+            return View();
+        }
+        public IActionResult Hiringtalent()
+        {
+            return View();
+        }
 
         public IActionResult Feature()
         {
