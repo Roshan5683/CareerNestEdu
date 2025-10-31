@@ -1,25 +1,6 @@
-﻿// features.js
+﻿// partnership.js
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Tab functionality
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons and contents
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            // Show corresponding content
-            const tabId = btn.getAttribute('data-tab') + '-tab';
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -40,61 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Button click handlers
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function () {
-            if (this.textContent.includes('Looking for a Job') || this.textContent.includes('Create Your Profile') || this.textContent.includes('Student Features')) {
-                showNotification('Redirecting to Job Seeker registration...', 'success');
-            } else if (this.textContent.includes('Hiring Talent') || this.textContent.includes('Post a Job') || this.textContent.includes('Employer Features')) {
-                showNotification('Redirecting to Employer registration...', 'success');
-            } else if (this.textContent.includes('College Partner') || this.textContent.includes('Partner Your College') || this.textContent.includes('College Features')) {
+            if (this.textContent.includes('College Partner') || this.textContent.includes('For Colleges')) {
                 showNotification('Redirecting to College Partnership information...', 'success');
-            } else if (this.textContent.includes('Login')) {
-                showNotification('Redirecting to login page...', 'info');
-            } else if (this.textContent.includes('Sign Up')) {
-                showNotification('Redirecting to registration page...', 'info');
+            } else if (this.textContent.includes('Employer Partner') || this.textContent.includes('For Employers')) {
+                showNotification('Redirecting to Employer Partnership information...', 'success');
             } else if (this.textContent.includes('Learn More')) {
-                showNotification('Opening technology details...', 'info');
+                showNotification('Loading partnership details...', 'info');
+            } else if (this.textContent.includes('Get Started')) {
+                showNotification('Redirecting to registration...', 'info');
+            } else if (this.textContent.includes('Contact Sales')) {
+                showNotification('Opening contact form...', 'info');
             }
         });
     });
-
-    // Animated counter for stats
-    function animateCounter(element, finalValue, duration = 2000) {
-        let startValue = 0;
-        const increment = finalValue / (duration / 16);
-        const timer = setInterval(() => {
-            startValue += increment;
-            if (startValue >= finalValue) {
-                element.textContent = finalValue.toLocaleString();
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(startValue).toLocaleString();
-            }
-        }, 16);
-    }
-
-    // Initialize counters when stats section is in view
-    const statsSection = document.querySelector('.stats');
-    const stat1 = document.getElementById('stat1');
-    const stat2 = document.getElementById('stat2');
-    const stat3 = document.getElementById('stat3');
-    const stat4 = document.getElementById('stat4');
-
-    let countersAnimated = false;
-
-    function checkScroll() {
-        const sectionTop = statsSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (sectionTop < windowHeight - 100 && !countersAnimated) {
-            animateCounter(stat1, 12500);
-            animateCounter(stat2, 850);
-            animateCounter(stat3, 185);
-            animateCounter(stat4, 15600);
-            countersAnimated = true;
-        }
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll();
 
     // Scroll to top button
     const scrollToTopBtn = document.querySelector('.scroll-to-top');
@@ -113,35 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
             behavior: 'smooth'
         });
     });
-
-    // Create particles for hero section
-    function createParticles() {
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-
-            // Random properties
-            const size = Math.random() * 6 + 2;
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            const delay = Math.random() * 5;
-            const duration = Math.random() * 10 + 10;
-
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${posX}%`;
-            particle.style.top = `${posY}%`;
-            particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-            particle.style.opacity = Math.random() * 0.5 + 0.2;
-
-            particlesContainer.appendChild(particle);
-        }
-    }
-
-    createParticles();
 
     // Notification function
     function showNotification(message, type = 'info') {
@@ -213,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Add intersection observer for fade-in animations
-    const fadeElements = document.querySelectorAll('.feature-card, .benefits-list li');
+    const fadeElements = document.querySelectorAll('.partnership-card, .step, .benefit-card, .tier-card, .testimonial-card');
 
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -230,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add hover effects to cards
-    const cards = document.querySelectorAll('.feature-card');
+    const cards = document.querySelectorAll('.partnership-card, .benefit-card, .tier-card, .testimonial-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             this.style.transform = this.style.transform.replace(/translateY\([^)]+\)/, '') + ' translateY(-10px)';

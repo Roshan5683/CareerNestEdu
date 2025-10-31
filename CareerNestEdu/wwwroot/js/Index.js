@@ -1,25 +1,6 @@
-﻿// features.js
+﻿// careernest.js
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Tab functionality
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons and contents
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-
-            // Add active class to clicked button
-            btn.classList.add('active');
-
-            // Show corresponding content
-            const tabId = btn.getAttribute('data-tab') + '-tab';
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -40,18 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Button click handlers
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function () {
-            if (this.textContent.includes('Looking for a Job') || this.textContent.includes('Create Your Profile') || this.textContent.includes('Student Features')) {
-                showNotification('Redirecting to Job Seeker registration...', 'success');
-            } else if (this.textContent.includes('Hiring Talent') || this.textContent.includes('Post a Job') || this.textContent.includes('Employer Features')) {
-                showNotification('Redirecting to Employer registration...', 'success');
-            } else if (this.textContent.includes('College Partner') || this.textContent.includes('Partner Your College') || this.textContent.includes('College Features')) {
-                showNotification('Redirecting to College Partnership information...', 'success');
-            } else if (this.textContent.includes('Login')) {
-                showNotification('Redirecting to login page...', 'info');
-            } else if (this.textContent.includes('Sign Up')) {
-                showNotification('Redirecting to registration page...', 'info');
+            if (this.textContent.includes('Looking for a Job') || this.textContent.includes('Create Your Profile')) {
+                window.location.href = 'signup.html?type=jobseeker';
+            } else if (this.textContent.includes('Hiring Talent') || this.textContent.includes('Post a Job')) {
+                window.location.href = 'signup.html?type=employer';
+            } else if (this.textContent.includes('College Partner') || this.textContent.includes('Partner Your College')) {
+                window.location.href = 'signup.html?type=college';
+            } else if (this.textContent.includes('View Programs') || this.textContent.includes('Explore Features')) {
+                showNotification('Loading content...', 'info');
             } else if (this.textContent.includes('Learn More')) {
-                showNotification('Opening technology details...', 'info');
+                window.location.href = 'signup.html?type=college';
             }
         });
     });
@@ -85,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const windowHeight = window.innerHeight;
 
         if (sectionTop < windowHeight - 100 && !countersAnimated) {
-            animateCounter(stat1, 12500);
-            animateCounter(stat2, 850);
+            animateCounter(stat1, 15600);
+            animateCounter(stat2, 11200);
             animateCounter(stat3, 185);
-            animateCounter(stat4, 15600);
+            animateCounter(stat4, 420);
             countersAnimated = true;
         }
     }
@@ -213,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Add intersection observer for fade-in animations
-    const fadeElements = document.querySelectorAll('.feature-card, .benefits-list li');
+    const fadeElements = document.querySelectorAll('.user-card, .feature-card, .college-card, .testimonial-card');
 
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -230,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add hover effects to cards
-    const cards = document.querySelectorAll('.feature-card');
+    const cards = document.querySelectorAll('.user-card, .feature-card, .college-card, .testimonial-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             this.style.transform = this.style.transform.replace(/translateY\([^)]+\)/, '') + ' translateY(-10px)';
